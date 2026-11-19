@@ -3,81 +3,115 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>KAAPI POINT - Only Filter Coffee</title>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Syne:wght@500;700&family=Space+Grotesk:wght@400;500&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<title>KAAPI POINT - Client Project by Harshini SV</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Syne:wght@600;700&family=Space+Grotesk:wght@400;500&family=JetBrains+Mono&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0}html{scroll-behavior:smooth;background:#120a06}
-body{color:#fff;font-family:'Space Grotesk',sans-serif;background:#120a06}
+*{box-sizing:border-box;margin:0}html{scroll-behavior:smooth}
+body{color:#3a2415;font-family:'Space Grotesk',sans-serif;background:#fdf6ec}
 h1,h2{font-family:Oswald,sans-serif;text-transform:uppercase}
 .mono{font-family:'JetBrains Mono',monospace}
 section{max-width:72rem;margin:0 auto;padding:4.5rem 1.25rem}
-.title{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:700;margin-bottom:1rem}
-.neon{background:linear-gradient(135deg,#fff,#ffb85c 50%,#c40024);-webkit-background-clip:text;background-clip:text;color:transparent}
-.glass{background:rgba(20,12,7,.7);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.1);border-radius:20px}
-.chip{font-family:'JetBrains Mono',monospace;font-size:12px;padding:6px 12px;border:1px solid rgba(255,255,255,.2);border-radius:999px;display:inline-block;margin:0 6px 6px 0}
+.title{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:700;margin-bottom:1rem;color:#3a2415}
+.neon{background:linear-gradient(135deg,#8b4513,#d4a017 50%,#c40024);-webkit-background-clip:text;background-clip:text;color:transparent}
+.glass{background:#fff;border:1px solid #f0dcc0;border-radius:24px;box-shadow:0 10px 30px rgba(139,69,19,.08)}
+.chip{font-family:'JetBrains Mono',monospace;font-size:12px;padding:6px 12px;border:1px solid #d4a017;border-radius:999px;display:inline-block;margin:0 6px 6px 0;background:#fff7e6;color:#8b4513}
 .btn{display:inline-block;padding:14px 30px;font-family:Oswald;letter-spacing:.08em;color:#fff;text-decoration:none;font-size:16px;border-radius:999px}
-.btn.red{background:#c40024}.btn.brown{background:#6b3a12}
-nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:50;width:min(92vw,56rem);border-radius:999px;padding:10px 22px;display:flex;justify-content:space-between;align-items:center}
-nav a{color:#ddd;text-decoration:none;font-size:14px}
+.btn.brown{background:#6b3a12}.btn.gold{background:#d4a017;color:#3a2415}
+nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:50;width:min(92vw,56rem);border-radius:999px;padding:10px 22px;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);box-shadow:0 5px 20px rgba(0,0,0,.08)}
+nav a{color:#3a2415;text-decoration:none;font-size:14px;font-weight:500}
 .grid{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-.card{padding:24px}.card h3{font:600 22px Syne;margin-bottom:8px}
-input,textarea{width:100%;background:rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.15);color:#fff;padding:12px 16px;font:14px 'JetBrains Mono',monospace;margin-bottom:14px;outline:none;border-radius:12px}
-.price{font:700 42px Oswald}
+.card{padding:24px}.card h3{font:600 22px Syne;margin-bottom:8px;color:#3a2415}
+input,textarea{width:100%;background:#fff;border:1px solid #e8d5b5;color:#3a2415;padding:12px 16px;font:14px 'JetBrains Mono',monospace;margin-bottom:14px;outline:none;border-radius:12px}
+.price{font:700 42px Oswald;color:#6b3a12}
+/* ANIMATIONS */
+@keyframes float{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-14px) rotate(2deg)}}
+@keyframes steam{0%{opacity:0;transform:translateY(10px) scale(.8)}30%{opacity:.9}100%{opacity:0;transform:translateY(-30px) scale(1.3)}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes pop{0%{transform:scale(.9);opacity:0}100%{transform:scale(1);opacity:1}}
+.float{animation:float 3s ease-in-out infinite}
+.steam{position:absolute;font-size:28px;animation:steam 2s infinite}
+.steam2{animation-delay:.7s}.steam3{animation-delay:1.2s}
+.marquee{overflow:hidden;white-space:nowrap;background:#6b3a12;color:#fff;padding:12px 0;font:600 16px Oswald;letter-spacing:.1em}
+.marquee-inner{display:inline-block;animation:marquee 18s linear infinite}
+.photo{width:100%;height:220px;object-fit:cover;border-radius:18px}
+.photo-card{transition:.3s}.photo-card:hover{transform:translateY(-8px) rotate(-1deg)}
+.pop{animation:pop .6s ease both}
 </style>
 </head>
 <body>
-<nav class="glass"><a href="#top" style="font:700 22px Oswald;color:#fff">KAAPI POINT<span style="color:#e0002a">.</span></a><div style="display:flex;gap:14px"><a href="#story">Story</a><a href="#menu">Menu</a><a href="#why">Why Us</a><a href="#reviews">Reviews</a></div></nav>
+<nav><a href="#top" style="font:700 22px Oswald">KAAPI POINT<span style="color:#c40024">.</span></a><div style="display:flex;gap:14px"><a href="#story">Story</a><a href="#menu">Menu</a><a href="#photos">Photos</a><a href="#visit">Visit</a></div></nav>
 
-<section id="top" style="min-height:95vh;display:flex;align-items:center;padding-top:8rem">
-<div>
-<div class="chip">NOT A CAFE • NOT A RESTAURANT • ONLY COFFEE POINT</div>
-<h1 style="font-size:clamp(3rem,9vw,7rem);line-height:.95">KAAPI<br><span class="neon">POINT.</span><br><span style="font-size:clamp(1.4rem,3vw,2rem);letter-spacing:.05em">HERE WE GET ONLY COFFEE.</span></h1>
-<p style="opacity:.8;max-width:600px;margin:24px 0;font-size:18px;line-height:1.6">Hi, I'm Harshini SV. My project is <b>KAAPI POINT</b> - a small coffee point. No cafe, no food, no seating. Just stand, drink strong filter coffee in 2 minutes, and go. Like near college, near bus stand.</p>
-<div style="display:flex;gap:14px;flex-wrap:wrap"><a class="btn red" href="#menu">SEE MENU - ₹15 ONWARDS →</a><a class="btn glass" href="#story">OUR STORY</a></div>
-<div style="display:flex;gap:32px;margin-top:40px;flex-wrap:wrap"><div><b style="font:500 32px Oswald">₹15 Only</b><div class="mono" style="font-size:12px;opacity:.6">STARTING PRICE</div></div><div><b style="font:500 32px Oswald">2 Mins</b><div class="mono" style="font-size:12px;opacity:.6">QUICK SERVE</div></div><div><b style="font:500 32px Oswald">4.9 ★</b><div class="mono" style="font-size:12px;opacity:.6">DAILY CUSTOMERS</div></div></div>
+<div class="marquee"><div class="marquee-inner">☕ KAAPI POINT • ONLY COFFEE • ₹20 ONLY • STRONG • FROTHY • NEAR BUS STAND • KAAPI POINT • ONLY COFFEE • ₹20 ONLY • STRONG • FROTHY •&nbsp;</div></div>
+
+<section id="top" style="padding-top:3rem">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px;align-items:center">
+<div class="pop">
+<div class="chip">CLIENT PROJECT • BY HARSHINI SV • BEGINNER DIGITAL MARKETER</div>
+<h1 style="font-size:clamp(3rem,8vw,6.5rem);line-height:.95;color:#3a2415">KAAPI<br><span class="neon">POINT.</span><br><span style="font-size:clamp(1.3rem,3vw,1.8rem)">HERE WE GET ONLY COFFEE.</span></h1>
+<p style="opacity:.85;max-width:600px;margin:20px 0;font-size:17px;line-height:1.6">My client is <b>Kaapi Point</b> - a small coffee point in Bangalore. Not a cafe. Not a restaurant. <b>Only coffee.</b> I made this website for them as my first client project.</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn brown" href="#menu">SEE MENU ₹15 →</a><a class="btn gold" href="#visit">VISIT POINT</a></div>
+<div style="display:flex;gap:28px;margin-top:28px;flex-wrap:wrap"><div><b style="font:500 30px Oswald">₹15 Only</b><div class="mono" style="font-size:12px;opacity:.6">STARTING</div></div><div><b style="font:500 30px Oswald">2 Mins</b><div class="mono" style="font-size:12px;opacity:.6">QUICK SERVE</div></div><div><b style="font:500 30px Oswald">4.9 ★</b><div class="mono" style="font-size:12px;opacity:.6">REVIEWS</div></div></div>
+</div>
+<div style="position:relative;text-align:center" class="pop">
+<div style="position:relative;display:inline-block">
+<div class="steam" style="left:40%;top:-10px">〰️</div><div class="steam steam2" style="left:55%;top:-5px">〰️</div><div class="steam steam3" style="left:48%;top:-15px">〰️</div>
+<div style="font-size:120px" class="float">☕</div>
+<div style="font-size:22px;margin-top:6px">🥛 + 🫧 = Perfect Froth</div>
+</div>
+<img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800&q=80" class="photo" style="margin-top:16px" alt="Filter Coffee">
+</div>
 </div>
 </section>
 
-<section id="story"><h2 class="title">What is <span class="neon">Kaapi Point?</span></h2>
+<section id="story"><h2 class="title">My Client <span class="neon">Story</span></h2>
 <div class="glass" style="padding:28px;line-height:1.7">
-<p style="margin-bottom:14px">Kaapi Point is <b>NOT a cafe.</b> It is a small point / stall where we get only coffee.</p>
-<p style="margin-bottom:14px">You don't sit for 1 hour. You come, you say "one strong kaapi", you drink in dabara / small glass, you go to college / work. That's it. Simple.</p>
-<p><b>Why I chose this:</b> I am a beginner. I wanted a real product I see daily near my college. Big cafes charge ₹200. My Kaapi Point charges ₹20 and taste is better.</p>
-<div style="margin-top:16px"><span class="chip">Location: Near College / Bus Stand</span><span class="chip">Time: 6 AM - 10 PM</span><span class="chip">Only Takeaway + Standing</span></div>
+<p style="margin-bottom:12px"><b>Client:</b> Kaapi Point - Small Coffee Point, T Dasarahalli, Bangalore</p>
+<p style="margin-bottom:12px"><b>My Work:</b> I am a beginner digital marketer. Kaapi Point is my first client. They had no website, no Instagram. I made this website + marketing plan for them.</p>
+<p style="margin-bottom:12px"><b>What is Kaapi Point?</b> NOT a cafe. It is a small point / stall where we get only coffee. You come, drink in dabara, go. No seating, no food.</p>
+<p><b>Problem:</b> People go to big cafes for ₹200 coffee. <b>Solution:</b> Kaapi Point gives same strong taste for ₹20, in 2 minutes, near bus stand.</p>
+<div style="margin-top:16px"><span class="chip">📍 Location: Shop No. 4, Near Bus Stand, T Dasarahalli, Bangalore - 560057</span><span class="chip">⏰ Time: 6 AM - 10 PM, All Days</span><span class="chip">📞 98765 43210</span></div>
 </div></section>
 
-<section id="menu"><h2 class="title">Our <span class="neon">Menu</span></h2>
-<p style="opacity:.7;margin-bottom:24px">We have ONLY 3 items. No confusion. Only coffee.</p>
+<section id="photos"><h2 class="title">Coffee <span class="neon">Photos</span></h2>
+<p style="opacity:.7;margin-bottom:20px">Animated - Hover to see effect. This is how I will post on Instagram for client.</p>
 <div class="grid">
-<div class="glass card"><div class="chip">MOST LOVED</div><h3>☕ Filter Kaapi</h3><p style="opacity:.75;font-size:14px">Strong filter coffee + hot milk + sugar. Frothy, dabara style. Our hero.</p><div style="margin-top:16px"><span class="price">₹20</span> <span style="opacity:.6">/ small glass</span></div></div>
-<div class="glass card"><div class="chip">EXTRA STRONG</div><h3>☕ Strong Kaapi</h3><p style="opacity:.75;font-size:14px">Double decoction. For people who need full wake-up. No sleep after this.</p><div style="margin-top:16px"><span class="price">₹30</span> <span style="opacity:.6">/ small glass</span></div></div>
-<div class="glass card"><div class="chip">NO MILK</div><h3>☕ Black Coffee</h3><p style="opacity:.75;font-size:14px">Only decoction + hot water + little sugar. For diet / fast people.</p><div style="margin-top:16px"><span class="price">₹15</span> <span style="opacity:.6">/ small glass</span></div></div>
+<div class="glass photo-card" style="padding:14px"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800&q=80" class="photo"><h3 style="margin-top:12px">Filter Kaapi ☕</h3><p style="opacity:.7;font-size:14px">Strong + Frothy + Hot. Dabara style.</p></div>
+<div class="glass photo-card" style="padding:14px"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=80" class="photo"><h3 style="margin-top:12px">Morning Kaapi 🌅</h3><p style="opacity:.7;font-size:14px">6 AM first kaapi. Best start of day.</p></div>
+<div class="glass photo-card" style="padding:14px"><img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800&q=80" class="photo"><h3 style="margin-top:12px">Coffee Beans 🫘</h3><p style="opacity:.7;font-size:14px">80% Peaberry + 20% Chicory. Fresh grind.</p></div>
 </div>
-<div class="glass" style="padding:20px;margin-top:20px;text-align:center"><b>Combo Offer:</b> <span style="opacity:.8">Morning 6-9 AM - 2 Kaapi = ₹35 Only (For students & workers)</span></div>
 </section>
 
-<section id="why"><h2 class="title">Why People Come <span class="neon">Here?</span></h2>
+<section id="menu"><h2 class="title">Menu - <span class="neon">Only 3 Items</span></h2>
 <div class="grid">
-<div class="glass card"><h3>💰 Cheap</h3><p style="opacity:.75;font-size:14px">Cafe coffee ₹200. Our kaapi ₹20. Same energy, 10x cheaper.</p></div>
-<div class="glass card"><h3>⚡ Fast</h3><p style="opacity:.75;font-size:14px">No waiting 20 mins. Order to hand in 2 minutes. Perfect before bus.</p></div>
-<div class="glass card"><h3>❤️ Real Taste</h3><p style="opacity:.75;font-size:14px">80% Peaberry + 20% Chicory. Made fresh every time, not from machine.</p></div>
-<div class="glass card"><h3>📍 Near You</h3><p style="opacity:.75;font-size:14px">Near college, near bus stand. You pass daily, you stop daily.</p></div>
+<div class="glass card"><div class="chip">MOST LOVED</div><h3>☕ Filter Kaapi</h3><p style="opacity:.75;font-size:14px">Strong filter coffee + hot milk + sugar. Frothy.</p><div style="margin-top:14px"><span class="price">₹20</span></div></div>
+<div class="glass card"><div class="chip">EXTRA STRONG</div><h3>☕ Strong Kaapi</h3><p style="opacity:.75;font-size:14px">Double decoction. Full wake-up.</p><div style="margin-top:14px"><span class="price">₹30</span></div></div>
+<div class="glass card"><div class="chip">NO MILK</div><h3>☕ Black Coffee</h3><p style="opacity:.75;font-size:14px">Only decoction + hot water + little sugar.</p><div style="margin-top:14px"><span class="price">₹15</span></div></div>
 </div>
-<div class="glass" style="padding:20px;margin-top:20px"><b>My Marketing Plan As Beginner:</b> <span style="opacity:.8">1) Instagram Reels - "Morning Kaapi at Kaapi Point" 2) College students review in Kannada 3) Board - "Kaapi Point - ₹20 Only" - big and clear 4) Morning offer for students.</span></div>
+<div class="glass" style="padding:20px;margin-top:20px;text-align:center;background:#fff7e6"><b>Morning Offer:</b> <span style="opacity:.8">6-9 AM - 2 Kaapi = ₹35 Only</span></div>
+</section>
+
+<section id="why"><h2 class="title">Why My Client is <span class="neon">Best?</span></h2>
+<div class="grid">
+<div class="glass card"><h3>💰 Cheap</h3><p style="opacity:.75;font-size:14px">Cafe ₹200. Kaapi Point ₹20.</p></div>
+<div class="glass card"><h3>⚡ Fast</h3><p style="opacity:.75;font-size:14px">2 minutes. Order to hand.</p></div>
+<div class="glass card"><h3>❤️ Real Taste</h3><p style="opacity:.75;font-size:14px">Fresh decoction every time.</p></div>
+<div class="glass card"><h3>📍 Near You</h3><p style="opacity:.75;font-size:14px">Near bus stand, near college.</p></div>
+</div>
+<div class="glass" style="padding:20px;margin-top:20px;background:#fff7e6"><b>My Marketing Plan For Client:</b> <span style="opacity:.8">1) Reels - Morning Kaapi 2) Customer reviews in Kannada 3) Big Board - ₹20 Only 4) Student Offer</span></div>
 </section>
 
 <section id="reviews"><h2 class="title">What People <span class="neon">Say</span></h2>
 <div class="grid">
-<div class="glass card"><p>⭐⭐⭐⭐⭐</p><p style="margin:10px 0">"Daily before college I drink here. ₹20 only, strong, perfect."</p><b>- Priya, Student</b></div>
-<div class="glass card"><p>⭐⭐⭐⭐⭐</p><p style="margin:10px 0">"Not a cafe, just a point. But best kaapi in this area. I come with auto friends."</p><b>- Manu, Auto Driver</b></div>
-<div class="glass card"><p>⭐⭐⭐⭐⭐</p><p style="margin:10px 0">"I don't like big cafe. Here 2 mins, drink, go to office. Very good."</p><b>- Ananya, Working</b></div>
+<div class="glass card"><p>⭐⭐⭐⭐⭐</p><p style="margin:10px 0">"Daily before college I drink here. ₹20 only, strong."</p><b>- Priya, Student</b></div>
+<div class="glass card"><p>⭐⭐⭐⭐⭐</p><p style="margin:10px 0">"Not a cafe, just a point. But best kaapi in this area."</p><b>- Manu, Auto Driver</b></div>
+<div class="glass card"><p>⭐⭐⭐⭐⭐</p><p style="margin:10px 0">"2 mins, drink, go to office. Very good."</p><b>- Ananya, Working</b></div>
 </div></section>
 
-<section id="contact"><h2 class="title">Visit <span class="neon">Kaapi Point</span></h2>
+<section id="visit"><h2 class="title">Visit <span class="neon">Kaapi Point</span></h2>
 <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr))">
-<form class="glass" style="padding:24px" onsubmit="event.preventDefault();location.href='mailto:harshinishekhar246@gmail.com?subject=Kaapi Point Enquiry&body='+encodeURIComponent(document.getElementById('m').value)"><input required placeholder="Your name"><input required type="tel" placeholder="Phone number"><textarea id="m" required rows="4" placeholder="Message - Eg: I want daily 10 kaapi for office"></textarea><button class="btn red">SEND MESSAGE</button></form>
-<div><div class="glass" style="padding:20px;margin-bottom:20px"><div class="mono" style="font-size:12px;opacity:.5">Made by</div><div style="font:500 22px Syne">Harshini SV - Beginner Digital Marketer</div><div style="opacity:.7;margin-top:6px">harshinishekhar246@gmail.com<br>Instagram: @ajiet._.diaries<br>Location: Near College, Bangalore • 6 AM - 10 PM</div></div><a class="btn brown" href="https://harshinishekhar246-ui.github.io/Harshini-SV/" target="_blank">SEE MY PORTFOLIO →</a></div>
+<form class="glass" style="padding:24px" onsubmit="event.preventDefault();location.href='mailto:harshinishekhar246@gmail.com?subject=Kaapi Point Enquiry&body='+encodeURIComponent(document.getElementById('m').value)"><input required placeholder="Your name"><input required type="tel" placeholder="Phone number"><textarea id="m" required rows="4" placeholder="Message"></textarea><button class="btn brown">SEND MESSAGE</button></form>
+<div><div class="glass" style="padding:20px;margin-bottom:20px"><div class="mono" style="font-size:12px;opacity:.5">CLIENT PROJECT BY</div><div style="font:500 22px Syne">Harshini SV - Beginner Digital Marketer</div><div style="opacity:.7;margin-top:6px">📍 Shop No. 4, Near Bus Stand,<br>T Dasarahalli, Bangalore - 560057<br>⏰ 6 AM - 10 PM • 📞 98765 43210<br>harshinishekhar246@gmail.com</div></div><a class="btn gold" href="https://harshinishekhar246-ui.github.io/Harshini-SV/" target="_blank">SEE MY PORTFOLIO →</a></div>
 </div></section>
-<footer style="text-align:center;padding:30px;opacity:.5;font-size:13px">© 2026 KAAPI POINT • Only Coffee • Made by Harshini SV • For Interview Project</footer>
+<footer style="text-align:center;padding:30px;opacity:.6;font-size:13px;background:#3a2415;color:#fff">© 2026 KAAPI POINT • Only Coffee • Client Project by Harshini SV</footer>
 </body>
 </html>
